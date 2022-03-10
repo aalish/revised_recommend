@@ -1,0 +1,20 @@
+version: "3"
+services:
+  ctmis:
+    build:
+      context: .
+    image: recommend-system
+
+    ports:
+      - "5000:5000"
+    volumes:
+      - recommend-system:/recommend_system
+    command: flask run -h 0.0.0.0 -p 5000 
+    expose:
+      - 5000
+    environment:
+      FLASK_APP: main
+
+volumes:
+  recommend-system:
+
